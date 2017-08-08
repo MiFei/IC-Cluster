@@ -5,7 +5,8 @@ apt-get update
 apt-get --assume-yes upgrade
 
 # install python and tools
-apt-get --assume-yes install nano python python-dev python-pip
+apt-get --assume-yes install nano
+apt-get --assume-yes install python python-dev python-pip
 apt-get --assume-yes install python3 python3-dev python3-pip
 
 mkdir /home/downloads
@@ -24,10 +25,13 @@ yes | pip2 install pillow matplotlib mpmath jupyter keras sklearn tensorflow ten
 yes | pip3 install pillow matplotlib mpmath jupyter keras sklearn tensorflow tensorflow-gpu
 
 # install pytorch
-pip2 install http://download.pytorch.org/whl/cu80/torch-0.1.2.post1-cp27-cp27m-manylinux1_x86_64.whl
+pip2 install http://download.pytorch.org/whl/cu80/torch-0.2.0.post1-cp27-cp27mu-manylinux1_x86_64.whl
 pip2 install torchvision
-pip3 install http://download.pytorch.org/whl/cu80/torch-0.1.2.post1-cp35-cp35m-manylinux1_x86_64.whl
-pip3 install torchvision
+
+# set up jupyter
+jupyter notebook --allow-root --generate-config
+echo "c.NotebookApp.ip = '*'" >> /root/.jupyter/jupyter_notebook_config.py
+echo "c.NotebookApp.open_browser = False" >> /root/.jupyter/jupyter_notebook_config.py
 
 # clean up
 cd /home
