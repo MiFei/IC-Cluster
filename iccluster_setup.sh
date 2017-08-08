@@ -21,11 +21,12 @@ apt-get --assume-yes install cuda
 # install python packages for machine learning
 yes | pip2 install --upgrade pip
 yes | pip3 install --upgrade pip
-yes | pip2 install pillow matplotlib mpmath jupyter keras sklearn tensorflow tensorflow-gpu
-yes | pip3 install pillow matplotlib mpmath jupyter keras sklearn tensorflow tensorflow-gpu
+yes | pip2 install pillow matplotlib mpmath jupyter pandas keras sklearn tensorflow tensorflow-gpu
+yes | pip3 install pillow matplotlib mpmath jupyter pandas keras sklearn tensorflow tensorflow-gpu
 
 # install pytorch
-pip2 install http://download.pytorch.org/whl/cu80/torch-0.2.0.post1-cp27-cp27mu-manylinux1_x86_64.whl
+# TODO: switch to a newer version when the jupyter bug is fixed
+pip2 install http://download.pytorch.org/whl/cu80/torch-0.1.12.post2-cp27-none-linux_x86_64.whl
 pip2 install torchvision
 
 # set up jupyter
