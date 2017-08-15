@@ -29,10 +29,11 @@ yes | pip3 install pillow matplotlib mpmath jupyter pandas keras sklearn tensorf
 pip2 install http://download.pytorch.org/whl/cu80/torch-0.1.12.post2-cp27-none-linux_x86_64.whl
 pip2 install torchvision
 
-# set up jupyter
+# set up jupyter (for Python 2.7)
 jupyter notebook --allow-root --generate-config
 echo "c.NotebookApp.ip = '*'" >> /root/.jupyter/jupyter_notebook_config.py
 echo "c.NotebookApp.open_browser = False" >> /root/.jupyter/jupyter_notebook_config.py
+python2 -m ipykernel install
 
 # clean up
 cd /home
