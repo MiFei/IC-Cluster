@@ -25,8 +25,7 @@ yes | pip2 install pillow matplotlib mpmath jupyter pandas keras sklearn tensorf
 yes | pip3 install pillow matplotlib mpmath jupyter pandas keras sklearn tensorflow tensorflow-gpu
 
 # install pytorch
-# TODO: switch to a newer version when the jupyter bug is fixed
-pip2 install http://download.pytorch.org/whl/cu80/torch-0.1.12.post2-cp27-none-linux_x86_64.whl
+pip2 install http://download.pytorch.org/whl/cu80/torch-0.2.0.post3-cp27-cp27mu-manylinux1_x86_64.whl
 pip2 install torchvision
 
 # set up jupyter (for Python 2.7)
