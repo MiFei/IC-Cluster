@@ -12,7 +12,7 @@ mkdir /home/downloads
 cd /home/downloads
 
 # download and install CUDA
-sudo apt-get install cuda-8-0
+sudo apt-get install cuda-8.0
 
 # download and install libcudnn6, which is necessary tensorflow 1.4 GPU
 CUDNN_TAR_FILE="cudnn-8.0-linux-x64-v6.0.tgz"
