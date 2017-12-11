@@ -4,6 +4,8 @@
 apt-get update
 apt-get --assume-yes upgrade
 
+
+
 # install python and tools
 apt-get --assume-yes install nano
 apt-get --assume-yes install python3 python3-dev python3-pip
@@ -18,6 +20,9 @@ sudo apt-get install cuda-8.0
 CUDNN_TAR_FILE="cudnn-8.0-linux-x64-v6.0.tgz"
 wget http://developer.download.nvidia.com/compute/redist/cudnn/v6.0/${CUDNN_TAR_FILE}
 tar -xzvf ${CUDNN_TAR_FILE}
+mkdir /usr/local/cuda-8.0
+mkdir /usr/local/cuda-8.0/lib64
+
 sudo cp -P cuda/include/cudnn.h /usr/local/cuda-8.0/include
 sudo cp -P cuda/lib64/libcudnn* /usr/local/cuda-8.0/lib64/
 sudo chmod a+r /usr/local/cuda-8.0/lib64/libcudnn*
