@@ -39,6 +39,16 @@ sudo chmod a+r /usr/local/cuda-8.0/lib64/libcudnn*
 yes | pip3 install --upgrade pip
 yes | pip3 install pillow matplotlib mpmath jupyter pandas keras sklearn tensorflow tensorflow-gpu
 
+# install anaconda
+curl -O https://repo.continuum.io/archive/Anaconda3-5.0.1-Linux-x86_64.sh
+bash Anaconda3-5.0.1-Linux-x86_64.sh
+source ~/.bashrc
+
+# Theano
+conda install numpy scipy mkl
+conda install theano pygpu
+
+
 # clean up
 cd /home
 rm -r ./downloads
@@ -46,3 +56,4 @@ rm -r ./downloads
 # set environment variables
 export PATH=/usr/local/cuda-8.0/bin${PATH:+:${PATH}}
 export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+export MKL_THREADING_LAYER=GNU
