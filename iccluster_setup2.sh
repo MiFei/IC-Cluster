@@ -9,7 +9,7 @@ export LC_CTYPE="en_US.UTF-8"
 sudo dpkg-reconfigure locales
 
 # install python and tools
-apt-get --assume-yes install nano
+apt-get --assume-yes install nano screen
 apt-get --assume-yes install python3 python3-dev python3-pip
 
 mkdir /home/downloads
@@ -37,7 +37,7 @@ sudo chmod a+r /usr/local/cuda-8.0/lib64/libcudnn*
 
 # install python packages for machine learning
 yes | pip3 install --upgrade pip
-yes | pip3 install pillow matplotlib mpmath jupyter pandas keras sklearn tensorflow tensorflow-gpu
+yes | pip3 install pillow matplotlib mpmath jupyter pandas keras sklearn tensorflow==1.4 tensorflow-gpu==1.4
 
 # install anaconda
 curl -O https://repo.continuum.io/archive/Anaconda3-5.0.1-Linux-x86_64.sh
