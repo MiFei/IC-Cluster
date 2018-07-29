@@ -35,6 +35,15 @@ sudo cp -P cuda/include/cudnn.h /usr/local/cuda-8.0/include
 sudo cp -P cuda/lib64/libcudnn* /usr/local/cuda-8.0/lib64/
 sudo chmod a+r /usr/local/cuda-8.0/lib64/libcudnn*
 
+# set environment variables
+export PATH=/usr/local/cuda-8.0/bin${PATH:+:${PATH}}
+export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64
+export LD_LIBRARY_PATH=/usr/local/cuda-8.0/extras/CUPTI/lib64/${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+export MKL_THREADING_LAYER=GNU
+
+# IMPORTANT NOTE 
+# The environment variable setup lines must be appended to ~/.bashrc as well, so that you can use CUDA every time you logout/login
+
 # install python packages for machine learning
 yes | pip3 install --upgrade pip
 yes | pip3 install pillow matplotlib mpmath jupyter pandas keras sklearn tensorflow==1.4 tensorflow-gpu==1.4
@@ -44,17 +53,10 @@ curl -O https://repo.continuum.io/archive/Anaconda3-5.0.1-Linux-x86_64.sh
 bash Anaconda3-5.0.1-Linux-x86_64.sh
 source ~/.bashrc
 
-# Theano
+# install Theano
 conda install numpy scipy mkl
 conda install theano pygpu
-
 
 # clean up
 cd /home
 rm -r ./downloads
-
-# set environment variables
-export PATH=/usr/local/cuda-8.0/bin${PATH:+:${PATH}}
-export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64
-export LD_LIBRARY_PATH=/usr/local/cuda-8.0/extras/CUPTI/lib64/${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
-export MKL_THREADING_LAYER=GNU
